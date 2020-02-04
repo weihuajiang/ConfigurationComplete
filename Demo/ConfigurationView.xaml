@@ -1,0 +1,223 @@
+﻿<UserControl x:Class="Huarui.ConfigurationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:c="clr-namespace:Huarui.Config;assembly=Huarui.Config"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800"
+             xmlns:extToolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit/extended">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="GlyphBrush" Color="#FF31347C"/>
+        <ControlTemplate x:Key="ExpanderToggleButton" TargetType="{x:Type ToggleButton}">
+            <Grid>
+                <Rectangle Margin="0,0,0,0" x:Name="Rectangle" Fill="Transparent" />
+                <Path HorizontalAlignment="Center" x:Name="Up_Arrow" VerticalAlignment="Center" Fill="{StaticResource GlyphBrush}" Data="M 0 0 L 4 4 L 8 0 Z" RenderTransformOrigin="0.5,0.5">
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                            <SkewTransform AngleX="0" AngleY="0" />
+                            <RotateTransform Angle="-90" />
+                            <TranslateTransform X="0" Y="0" />
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+                <Path Visibility="Collapsed" HorizontalAlignment="Center" x:Name="Down_Arrow" VerticalAlignment="Center" Fill="{StaticResource GlyphBrush}" Data="M 0 0 L 0 8 L 6 4 Z" RenderTransformOrigin="0.5,0.5">
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                            <SkewTransform AngleX="0" AngleY="0" />
+                            <RotateTransform Angle="135" />
+                            <TranslateTransform X="0" Y="0" />
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsChecked" Value="true">
+                    <Setter Property="Visibility" Value="Visible" TargetName="Down_Arrow" />
+                    <Setter Property="Visibility" Value="Collapsed" TargetName="Up_Arrow" />
+                    <Setter Property="OpacityMask" TargetName="Down_Arrow" Value="#FF000000" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <Style x:Key="TreeViewItemFocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ExpandCollapseToggleStyle" TargetType="{x:Type ToggleButton}">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="Width" Value="19"/>
+            <Setter Property="Height" Value="13"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border Width="19" Height="13" Background="Transparent">
+                            <Border Width="9" Height="9" SnapsToDevicePixels="true" BorderBrush="#FF7898B5" BorderThickness="0" CornerRadius="0">
+
+                                <Path Margin="1,1,1,1" x:Name="ExpandPath" Fill="#FF31347C" Data="M 0 0 L 0 7 L 4 4 Z">
+                                </Path>
+                            </Border>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Data" TargetName="ExpandPath" Value="M 0 7 L 7 0 L 7 7 Z"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type TreeViewItem}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="HorizontalContentAlignment" Value="{Binding Path=HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="VerticalContentAlignment" Value="{Binding Path=VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="Padding" Value="1,0,0,0"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="FocusVisualStyle" Value="{StaticResource TreeViewItemFocusVisual}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TreeViewItem}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition MinWidth="19" Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Border
+        x:Name="Bd"
+        Grid.ColumnSpan="3"
+        SnapsToDevicePixels="true"
+        Background="{TemplateBinding Background}"
+        BorderBrush="{TemplateBinding BorderBrush}"
+        BorderThickness="{TemplateBinding BorderThickness}"
+        Padding="{TemplateBinding Padding}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition MinWidth="19" Width="Auto"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <ToggleButton
+          x:Name="Expander"
+          Style="{StaticResource ExpandCollapseToggleStyle}"
+          IsChecked="{Binding Path=IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"
+          ClickMode="Press"/>
+                                    <ContentPresenter
+          Grid.Column="1"
+          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+          x:Name="PART_Header"
+          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+          ContentSource="Header"/>
+                                </Grid>
+                            </Border>
+                            <ItemsPresenter
+        x:Name="ItemsHost"
+        Grid.Column="1"
+        Grid.ColumnSpan="2"
+        Grid.Row="1"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsExpanded" Value="false">
+                                <Setter
+         Property="Visibility"
+         TargetName="ItemsHost"
+         Value="Collapsed"/>
+                            </Trigger>
+                            <Trigger Property="HasItems" Value="false">
+                                <Setter
+         Property="Visibility"
+         TargetName="Expander"
+         Value="Hidden"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter
+         Property="Background"
+         TargetName="Bd"
+         Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                <Setter
+         Property="Foreground"
+         Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="true"/>
+                                    <Condition Property="IsSelectionActive" Value="false"/>
+                                </MultiTrigger.Conditions>
+                                <Setter
+         Property="Background"
+         TargetName="Bd"
+         Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                                <Setter
+         Property="Foreground"
+         Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                            </MultiTrigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter
+         Property="Foreground"
+         Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <!--
+        <ListBox Name="ConfigList" Margin="0" Grid.Column="0" Grid.Row="0" ItemsSource="{Binding}" SelectionChanged="OnConfigurationSelectionChanged">
+        </ListBox>
+        -->
+        <TreeView  Name="ConfigList" Margin="0,5,0,5" HorizontalContentAlignment="Stretch" Grid.Column="0" Grid.Row="0"  IsVisibleChanged="OnIsVisibleChanged"
+                   SelectedItemChanged="OnSelectedItemChanged">
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type c:ConfigurationCollection}"
+                             ItemsSource="{Binding}">
+                    <TextBlock Margin="0,5,0,5" Text="{Binding Path=Name}" 
+                ToolTip="{Binding Path=Name}" />
+                </HierarchicalDataTemplate>
+                <HierarchicalDataTemplate DataType="{x:Type c:AbstractConfiguration}"
+                             ItemsSource="{Binding}">
+                    <TextBlock Margin="0,5,0,5" Text="{Binding Path=Name}" 
+                ToolTip="{Binding Path=Name}" />
+                </HierarchicalDataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+        <GridSplitter Grid.Row="0" Grid.Column="1" Width="5" Panel.ZIndex="5" HorizontalAlignment="Left" VerticalAlignment="Stretch"
+                      Background="Transparent"
+                      ResizeDirection="Columns" ResizeBehavior="PreviousAndCurrent"/>
+        <extToolkit:PropertyGrid Grid.Row="0" Margin="5, 5, 0, 5" Grid.Column="1" Name="propertyGrid1" VerticalAlignment="Stretch" 
+                                 DisplaySummary="True" NameColumnWidth="380" />
+
+        <Border CornerRadius="5" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0" Background="#FFB3BFDF">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="140"/>
+                    <ColumnDefinition Width="140"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Save" Margin="5" Padding="5" IsEnabled="{Binding Path=IsChanged}" Grid.Column="0" Click="OnSave" />
+                <Button Content="Cancel" Margin="5" Padding="5" IsEnabled="{Binding Path=IsChanged}" Grid.Column="1" Click="OnCancel" />
+
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>
