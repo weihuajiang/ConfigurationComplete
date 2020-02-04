@@ -1,6 +1,6 @@
 
 # ConfigurationComplete
-ConfigurationComplete is a library for dotnet configuration system based on [WPFToolkit.Extended](https://archive.codeplex.com/?p=wpftoolkit). With this tools, you can easily finish all the operation for configuration, including usage, serialization and GUI. For common window application with GUI, this tool can reduce many coding works on configuration.
+ConfigurationComplete is a library for dotnet configuration system based on [WPFToolkit.Extended](https://archive.codeplex.com/?p=wpftoolkit). With this tools, you can easily finish all the operation for configuration, including usage, serialization and GUI. Simple writing class can work with configuration even without knownledge of dotnet configuration. For common window application with GUI, this tool can reduce many coding works on configuration.
 ![screenshot](screenshot.png)
 # Defination of Configuration Class
 Configuration information must inherit from AbstractConfiguration, and all the property must be set with proper attribute
