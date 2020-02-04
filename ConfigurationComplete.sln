@@ -11,8 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5380EF1B-073E-454E-BE7D-71DA011A8DAC}"
 	ProjectSection(SolutionItems) = preProject
+		License.txt = License.txt
 		Readme.md = Readme.md
 		ReadmeZh.md = ReadmeZh.md
+		..\..\Users\weihuajiang\Desktop\screenshot.png = ..\..\Users\weihuajiang\Desktop\screenshot.png
 	EndProjectSection
 EndProject
 Global

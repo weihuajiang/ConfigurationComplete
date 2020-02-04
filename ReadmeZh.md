@@ -1,5 +1,7 @@
-﻿# ConfigurationComplete
-ConfigurationComplete是个DotNet下处理配置信息的工具，使用这个工作可以简单的完成配置信息在应用程序的全部操作，包括保存、读取、使用和显示。配置信息的显示使用了[WPFToolkit.Extended](https://archive.codeplex.com/?p=wpftoolkit)的PropertyGripd。对于一般应用，使用本类库，可以在应用中快速的增加配置所有需要的功能。
+﻿
+# ConfigurationComplete
+ConfigurationComplete是个DotNet下基于[WPFToolkit.Extended](https://archive.codeplex.com/?p=wpftoolkit)处理配置信息的工具，使用这个工作可以简单的完成配置信息在应用程序的全部操作，包括保存、读取、使用和显示。对于一般应用，使用本类库，可以在应用中快速的增加配置所有需要的功能，简化配置功能在软件开发中的工作。
+![screenshot](screenshot.png)
 # 配置信息的定义
 配置信息作为dotnet的class必须继承AbstractConfiguration，并且每个属性(Property)必须正确设置相应的Attribute
 - **ConfigurationPropertyAttribute** dotnet的Configuration必须设置，**必须**
@@ -72,3 +74,4 @@ ConfigurationComplete是个DotNet下处理配置信息的工具，使用这个�
 配置属性间存在关系，一个属性为特定值时候，其他属性可能没有意义，不想用户进行编辑，在属性写方法中可以使用SetPropertyEnabled方法将其他属性禁用
 ## 显示
 配置信息的显示使用了[WPFToolkit.Extended](https://archive.codeplex.com/?p=wpftoolkit)的PropertyGripd
+
