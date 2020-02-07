@@ -1,4 +1,4 @@
-﻿
+﻿[English](Readme.md)|中文
 # ConfigurationComplete
 ConfigurationComplete是个DotNet下基于[WPFToolkit.Extended](https://archive.codeplex.com/?p=wpftoolkit)处理配置信息的工具，使用这个工作可以简单的完成配置信息在应用程序的全部操作，包括保存、读取、使用和显示。对于一般应用，使用本类库，可以在应用中快速的增加配置所有需要的功能，简化配置功能在软件开发中的工作。
 ![screenshot](screenshot.png)
