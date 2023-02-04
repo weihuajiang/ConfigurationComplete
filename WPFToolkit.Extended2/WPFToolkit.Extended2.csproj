@@ -1,0 +1,163 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="CollectionEditors\Images\Delete16.png" />
+    <None Remove="MessageBox\Icons\Error48.png" />
+    <None Remove="MessageBox\Icons\Information48.png" />
+    <None Remove="MessageBox\Icons\Question48.png" />
+    <None Remove="MessageBox\Icons\Warning48.png" />
+    <None Remove="MultiLineTextEditor\Images\Notes16.png" />
+    <None Remove="PropertyGrid\Images\AdvancedProperties11.png" />
+    <None Remove="PropertyGrid\Images\Categorize16.png" />
+    <None Remove="PropertyGrid\Images\ClearFilter16.png" />
+    <None Remove="PropertyGrid\Images\Database11.png" />
+    <None Remove="PropertyGrid\Images\Inheritance11.png" />
+    <None Remove="PropertyGrid\Images\Local11.png" />
+    <None Remove="PropertyGrid\Images\Resource11.png" />
+    <None Remove="PropertyGrid\Images\SortAscending16.png" />
+    <None Remove="PropertyGrid\Images\Style11.png" />
+    <None Remove="RichTextBoxFormatBar\Images\Bold16.png" />
+    <None Remove="RichTextBoxFormatBar\Images\Bullets16.png" />
+    <None Remove="RichTextBoxFormatBar\Images\CenterAlign16.png" />
+    <None Remove="RichTextBoxFormatBar\Images\FontColorPicker16.png" />
+    <None Remove="RichTextBoxFormatBar\Images\Italic16.png" />
+    <None Remove="RichTextBoxFormatBar\Images\JustifyAlign16.png" />
+    <None Remove="RichTextBoxFormatBar\Images\LeftAlign16.png" />
+    <None Remove="RichTextBoxFormatBar\Images\Numbering16.png" />
+    <None Remove="RichTextBoxFormatBar\Images\RightAlign16.png" />
+    <None Remove="RichTextBoxFormatBar\Images\TextHighlightColorPicker16.png" />
+    <None Remove="RichTextBoxFormatBar\Images\Underline16.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="CollectionEditors\Images\Delete16.png" />
+    <Resource Include="MessageBox\Icons\Error48.png" />
+    <Resource Include="MessageBox\Icons\Information48.png" />
+    <Resource Include="MessageBox\Icons\Question48.png" />
+    <Resource Include="MessageBox\Icons\Warning48.png" />
+    <Resource Include="MultiLineTextEditor\Images\Notes16.png" />
+    <Resource Include="PropertyGrid\Images\AdvancedProperties11.png" />
+    <Resource Include="PropertyGrid\Images\Categorize16.png" />
+    <Resource Include="PropertyGrid\Images\ClearFilter16.png" />
+    <Resource Include="PropertyGrid\Images\Database11.png" />
+    <Resource Include="PropertyGrid\Images\Inheritance11.png" />
+    <Resource Include="PropertyGrid\Images\Local11.png" />
+    <Resource Include="PropertyGrid\Images\Resource11.png" />
+    <Resource Include="PropertyGrid\Images\SortAscending16.png" />
+    <Resource Include="PropertyGrid\Images\Style11.png" />
+    <Resource Include="RichTextBoxFormatBar\Images\Bold16.png" />
+    <Resource Include="RichTextBoxFormatBar\Images\Bullets16.png" />
+    <Resource Include="RichTextBoxFormatBar\Images\CenterAlign16.png" />
+    <Resource Include="RichTextBoxFormatBar\Images\FontColorPicker16.png" />
+    <Resource Include="RichTextBoxFormatBar\Images\Italic16.png" />
+    <Resource Include="RichTextBoxFormatBar\Images\JustifyAlign16.png" />
+    <Resource Include="RichTextBoxFormatBar\Images\LeftAlign16.png" />
+    <Resource Include="RichTextBoxFormatBar\Images\Numbering16.png" />
+    <Resource Include="RichTextBoxFormatBar\Images\RightAlign16.png" />
+    <Resource Include="RichTextBoxFormatBar\Images\TextHighlightColorPicker16.png" />
+    <Resource Include="RichTextBoxFormatBar\Images\Underline16.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="CollectionEditors\Implementation\CollectionEditorDialog.xaml.cs">
+      <DependentUpon>CollectionEditorDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="PropertyGrid\Implementation\Editors\CollectionEditor.xaml.cs">
+      <DependentUpon>CollectionEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="RichTextBoxFormatBar\RichTextBoxFormatBar.xaml.cs">
+      <DependentUpon>RichTextBoxFormatBar.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="BusyIndicator\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ButtonSpinner\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CalculatorUpDown\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Calculator\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CheckListBox\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChildWindow\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Chromes\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CollectionEditors\Implementation\CollectionEditorDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CollectionEditors\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ColorCanvas\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ColorPicker\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DateTimePicker\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DateTimeUpDown\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DropDownButton\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Magnifier\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MessageBox\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MultiLineTextEditor\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="NumericUpDown\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PropertyGrid\Implementation\Editors\CollectionEditor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PropertyGrid\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RichTextBoxFormatBar\RichTextBoxFormatBar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SplitButton\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Themes\Common\Generic_Common.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TimePicker\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WatermarkTextBox\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Wizard\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>

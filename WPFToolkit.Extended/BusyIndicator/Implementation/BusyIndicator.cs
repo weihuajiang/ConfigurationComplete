@@ -58,7 +58,7 @@ namespace Microsoft.Windows.Controls
         /// <summary>
         /// Gets or sets a value indicating whether the BusyContent is visible.
         /// </summary>
-        protected bool IsContentVisible { get; set; }
+        public bool IsContentVisible { get; protected set; } = false;
 
         #endregion //Properties
 

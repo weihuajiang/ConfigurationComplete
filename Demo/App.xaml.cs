@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -15,8 +16,13 @@ namespace Demo
     /// </summary>
     public partial class App : Application
     {
+        [DllImport("kernel32.dll")]
+        public static extern Boolean AllocConsole();
+        [DllImport("kernel32.dll")]
+        public static extern Boolean FreeConsole();
         protected override void OnStartup(StartupEventArgs e)
         {
+            AllocConsole();
             //register service
             Context.AddService("HL7", new FTPLis());
             Context.AddService("ASTM", new ASTMLis());

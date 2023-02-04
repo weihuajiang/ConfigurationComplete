@@ -9,6 +9,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace Huarui
 {/// <summary>
@@ -20,6 +21,34 @@ namespace Huarui
         public ExternalControlConfiguration1()
         {
             Serialization = new IniFileConfigurationSerialization(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "external1.ini"));
+        }
+        [ConfigurationProperty("TestColor")]
+        public Color TestColor
+        {
+            get
+            {
+                return GetValue<Color>("TestColor");
+            }
+            set
+            {
+                SetValue<Color>("TestColor", value);
+            }
+        }
+        [ConfigurationProperty("TestColor2")]
+        public Color TestColor2
+        {
+            get
+            {
+                Color c = GetValue<Color>("TestColor2");
+                if (c.Equals(default(Color)))
+                    c = Colors.Red;
+                Console.WriteLine(c);
+                return c;
+            }
+            set
+            {
+                SetValue<Color>("TestColor2", value);
+            }
         }
         [Category("External Control")]
         [DisplayName("Enable External Control-1")]

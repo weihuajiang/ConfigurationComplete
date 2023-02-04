@@ -254,6 +254,7 @@ namespace Microsoft.Windows.Controls.PropertyGrid
                 {
                     Editor.IsEnabled = cp.IsEnabled;
                 }
+                IsEnabled = cp.IsEnabled;
             }
         }
         internal void Clear()
@@ -271,6 +272,7 @@ namespace Microsoft.Windows.Controls.PropertyGrid
             {
                 if (Editor != null)
                     Editor.IsEnabled = cp.IsEnabled;
+                IsEnabled = cp.IsEnabled;
             });
         }
 

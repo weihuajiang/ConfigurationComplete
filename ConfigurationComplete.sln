@@ -17,6 +17,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		screenshot.png = screenshot.png
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{7F26A24C-4BFB-4877-A335-38DCEABC05DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFToolkit.Extended2", "WPFToolkit.Extended2\WPFToolkit.Extended2.csproj", "{4ACA5984-F71E-4656-ACD0-CD434AE4BE84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,9 +39,16 @@ Global
 		{7A8886DA-5BF1-426F-A741-20E8A3298768}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A8886DA-5BF1-426F-A741-20E8A3298768}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A8886DA-5BF1-426F-A741-20E8A3298768}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ACA5984-F71E-4656-ACD0-CD434AE4BE84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ACA5984-F71E-4656-ACD0-CD434AE4BE84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ACA5984-F71E-4656-ACD0-CD434AE4BE84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ACA5984-F71E-4656-ACD0-CD434AE4BE84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4ACA5984-F71E-4656-ACD0-CD434AE4BE84} = {7F26A24C-4BFB-4877-A335-38DCEABC05DD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A82CEA4-365A-4368-9C77-087B06423017}

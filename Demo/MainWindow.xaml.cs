@@ -23,10 +23,6 @@ namespace Demo
     /// </summary>
     public partial class MainWindow : Window
     {
-        [DllImport("kernel32.dll")]
-        public static extern Boolean AllocConsole();
-        [DllImport("kernel32.dll")]
-        public static extern Boolean FreeConsole();
         public MainWindow()
         {
         }

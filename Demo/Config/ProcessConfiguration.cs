@@ -8,6 +8,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace Huarui
 {
@@ -32,7 +33,7 @@ namespace Huarui
                 SetPropertyEnabled("IsPool8Enabled", value == PoolSize.Pool8);
             }
         }
-        [DispId(1)]
+        [DispId(4)]
         [Category("Test Workflow")]
         [DisplayName("Enable 8 Pool Workflow")]
         [Description("是否允许8样品汇集检测体会样品")]
