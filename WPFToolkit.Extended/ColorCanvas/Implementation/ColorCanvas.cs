@@ -243,7 +243,6 @@ namespace Microsoft.Windows.Controls
                 Point p = e.GetPosition(_colorShadingCanvas);
                 UpdateColorShadeSelectorPositionAndCalculateColor(p, true);
                 Mouse.Synchronize();
-                e.Handled = true;
             }
         }
 

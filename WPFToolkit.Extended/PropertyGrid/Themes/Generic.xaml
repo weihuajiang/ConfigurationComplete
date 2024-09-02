@@ -261,11 +261,10 @@
                             <MenuItem Header="Reset Value" Command="commands:PropertyItemCommands.ResetValue" />
                         </ContextMenu>
                     </ControlTemplate.Resources>
-                    <Border Background="White" ContextMenu="{StaticResource ContextMenu}" Visibility="{Binding IsEnabled, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}" ContextMenuService.Placement="Bottom">
+                    <Border Background="White" ContextMenu="{StaticResource ContextMenu}" ContextMenuService.Placement="Bottom">
                         <Grid VerticalAlignment="Center" HorizontalAlignment="Stretch">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition SharedSizeGroup="C" Width="{Binding NameColumnWidth, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:PropertyGrid}}}"/>
-                                
+                                <ColumnDefinition Width="{Binding NameColumnWidth, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:PropertyGrid}}}"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
@@ -288,7 +287,7 @@
                                     </Grid>
                                 </Grid>
                             </Border>
-                            <GridSplitter Grid.Column="0" Focusable="False" HorizontalAlignment="Right" Width="3" ResizeBehavior="CurrentAndNext" ResizeDirection="Columns"/>
+
                             <Border BorderThickness="0.5" BorderBrush="#FFF0F0F0" x:Name="PART_Editor"  Grid.Column="1" Background="Transparent">
                                 <ContentControl Content="{TemplateBinding Editor}" VerticalAlignment="Center" Focusable="False" IsTabStop="False" />
                             </Border>
@@ -399,7 +398,7 @@
                                         <RowDefinition Height="auto"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <ItemsControl Grid.IsSharedSizeScope="True" ItemsSource="{Binding Properties, RelativeSource={RelativeSource TemplatedParent}}" IsTabStop="False" Focusable="False" >
+                                    <ItemsControl ItemsSource="{Binding Properties, RelativeSource={RelativeSource TemplatedParent}}" IsTabStop="False" Focusable="False" >
                                         <ItemsControl.ItemsPanel>
                                             <ItemsPanelTemplate>
                                                 <StackPanel Orientation="Vertical" />

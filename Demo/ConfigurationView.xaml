@@ -204,7 +204,7 @@
                       Background="Transparent"
                       ResizeDirection="Columns" ResizeBehavior="PreviousAndCurrent"/>
         <extToolkit:PropertyGrid Grid.Row="0" Margin="5, 5, 0, 5" Grid.Column="1" Name="propertyGrid1" VerticalAlignment="Stretch" 
-                                 DisplaySummary="True" NameColumnWidth="180" />
+                                 DisplaySummary="True" NameColumnWidth="180" ShowHeader="False"/>
 
         <Border CornerRadius="5" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0" Background="#FFB3BFDF">
             <Grid>
